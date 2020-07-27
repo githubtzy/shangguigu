@@ -1,6 +1,11 @@
 package com.sitc.shangguigu.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
+import org.springframework.data.relational.core.mapping.Table;
 
 /**
  * @author 熟尔
@@ -12,10 +17,20 @@ import lombok.Data;
 @Data
 public class User {
 
-    private Long id;
+    @TableId(type = IdType.ID_WORKER)
+    private Long id; // 设置id主键策略， 随机生成19位随机数
 
     private String name;
     private Integer age;
     private String email;
+
+
+    @TableField(fill = FieldFill.INSERT)
+    private Data createTime;
+
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private  Data updateTime;
+
 
 }
