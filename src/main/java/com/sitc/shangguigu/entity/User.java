@@ -1,11 +1,10 @@
 package com.sitc.shangguigu.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Table;
+
+import java.util.Date;
 
 /**
  * @author 熟尔
@@ -25,12 +24,18 @@ public class User {
     private String email;
 
 
+    @Version
     @TableField(fill = FieldFill.INSERT)
-    private Data createTime;
+    // 每一次插入更新的时候就自动的更新值
+    private Integer version; // 乐观锁的版本号
+
+
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
 
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private  Data updateTime;
+    private  Date updateTime;
 
 
 }

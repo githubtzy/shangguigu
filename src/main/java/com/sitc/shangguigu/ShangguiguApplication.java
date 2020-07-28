@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.sitc.shangguigu.mapping")
+
 public class ShangguiguApplication {
 
     public static void main(String[] args) {
