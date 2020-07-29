@@ -1,6 +1,8 @@
 package com.sitc.shangguigu.config;
 
+import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,19 @@ public class MpConfig {
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor() {
         return new OptimisticLockerInterceptor();
+    }
+
+    //分页查询的插件，直接注入就行
+    @Bean
+    public PaginationInterceptor paginationInterceptor(){
+     return    new PaginationInterceptor();
+
+    }
+
+    //逻辑删除
+    @Bean
+    public LogicSqlInjector sqlInjector(){
+        return  new LogicSqlInjector();
     }
 
 }

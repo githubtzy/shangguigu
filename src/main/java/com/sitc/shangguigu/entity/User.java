@@ -2,7 +2,7 @@ package com.sitc.shangguigu.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
+
 
 import java.util.Date;
 
@@ -36,6 +36,10 @@ public class User {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private  Date updateTime;
+
+
+    @TableLogic
+    private  Integer deleted;
 
 
 }
